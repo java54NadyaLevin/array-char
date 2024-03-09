@@ -3,7 +3,6 @@ package telran.arrays;
 import java.lang.reflect.Array;
 import java.lang.Character;
 
-
 public class ArrayChar {
 	private char[] array; // encapsulated state
 
@@ -15,7 +14,7 @@ public class ArrayChar {
 	public int compareTo(ArrayChar another) {
 		return this.compare(this.array, another.array);
 	}
-	
+
 	private int compare(char[] first, char[] second) {
 		int length = Math.min(first.length, second.length);
 		int index = 0;
@@ -30,7 +29,6 @@ public class ArrayChar {
 		while (index < array.length && array[index] != character) {
 			index++;
 		}
-
 		return index == array.length ? -1 : index;
 	}
 
@@ -42,7 +40,6 @@ public class ArrayChar {
 		return index;
 	}
 
-	
 	public int count(char character) {
 		int count = 0;
 		for (int index = 0; index < array.length; index++) {
@@ -52,33 +49,31 @@ public class ArrayChar {
 		}
 		return count;
 	}
-	
+
 	private char[] toLowerCase(char[] array) {
 		char[] lowerCaseArray = new char[array.length];
-		for(int index = 0; index < array.length; index++) {
+		for (int index = 0; index < array.length; index++) {
 			lowerCaseArray[index] = Character.toLowerCase(array[index]);
 		}
 		return lowerCaseArray;
 	}
-	
+
 	public int compareToIgnoreCase(ArrayChar another) {
 		char[] ar1 = toLowerCase(this.array);
 		char[] ar2 = toLowerCase(another.array);
-		
+
 		return this.compare(ar1, ar2);
 	}
-	
+
 	public boolean contains(char character) {
-		
 		return this.indexOf(character) != -1;
 	}
-	
+
 	public boolean equals(ArrayChar another) {
 		return this.compare(this.array, another.array) == 0;
 	}
-	
+
 	public boolean equalsIgnoreCase(ArrayChar another) {
-		
 		return this.compareToIgnoreCase(another) == 0;
 	}
 }
